@@ -13,7 +13,7 @@
   "displayName": "ScriptBox",
   "description": "Extend VS Code without dealing with extension boilerplate",
   "icon": "documentation/logo.png",
-  "version": "2.0.1",
+  "version": "3.0.1",
   "engines": {
     "vscode": "^1.29.0"
   },
@@ -28,6 +28,9 @@
     "multi-root ready"
   ],
   "activationEvents": [
+
+    "onCommand:extension.mycmd01",
+
     "onCommand:extension.createScript",
     "onCommand:extension.editScript",
     "onCommand:extension.runScript",
@@ -38,6 +41,12 @@
   "main": "./out/extension",
   "contributes": {
     "commands": [
+
+      {
+        "command": "extension.mycmd01",
+        "title": "ScriptBox: mycmd01"
+      },
+
       {
         "command": "extension.createScript",
         "title": "ScriptBox: Create Script"

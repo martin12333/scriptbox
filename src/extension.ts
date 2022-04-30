@@ -182,10 +182,37 @@ const evaluate = _.debounce(
   300
 );
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export function activate(context: vscode.ExtensionContext) {
   const outputChannel = initializeConsole();
 
   ensureScriptDir(getScriptDir());
+
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand("extension.mycmd01", async () => {
+      mycmd01func2();
+    } //of async
+    )
+  );
+
 
   context.subscriptions.push(
     vscode.commands.registerCommand("extension.createScript", async () => {
@@ -289,5 +316,91 @@ export function activate(context: vscode.ExtensionContext) {
   );
 }
 
+
+
+
+
+
+
+
+
+
 // this method is called when your extension is deactivated
 export function deactivate() {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function mycmd01func2() {
+  try {
+
+    console.log('Congratulations, your mycmd01func2 is now active!');
+
+    vscode.window.showInformationMessage('Hello mycmd01func2!');
+
+    //vscode.window
+    const editor = vscode.window.activeTextEditor;
+
+    if (editor) {
+      const document = editor.document;
+      const selection = editor.selection;
+
+      const text1 = document.getText(selection);
+
+
+
+
+
+
+
+
+
+      //const out9 = text1.split('').reverse().join('');
+      const out9 = text1.replace(/a/gi,'oo')
+
+
+
+
+
+
+
+
+      editor.edit(editBuilder => {
+        editBuilder.replace(selection, out9);
+      });
+    }
+
+
+
+
+
+
+  } catch (err) {
+    vscode.window.showErrorMessage(err.message);
+  }
+}
+
