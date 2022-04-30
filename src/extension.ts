@@ -25,7 +25,8 @@ module.exports = function (selection) {
 };
 `.trim();
 
-const getScriptDir = () => homedir() + `${sep}.scriptbox${sep}`;
+//const getScriptDir = () => homedir() + `${sep}.scriptbox${sep}`;
+const getScriptDir = () => homedir() + `${sep}OneDrive${sep}scriptbox-scripts--selected${sep}`;
 
 const isScript = filename =>
   filename.endsWith(".js") && !filename.endsWith(SCRATCH_FILENAME);
